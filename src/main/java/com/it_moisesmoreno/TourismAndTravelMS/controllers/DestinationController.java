@@ -8,6 +8,7 @@ import com.it_moisesmoreno.TourismAndTravelMS.entities.Destination;
 import com.it_moisesmoreno.TourismAndTravelMS.repositories.DestinationRepository;
 
 @RestController
+@RequestMapping("/destinations")
 public class DestinationController {
 
     private DestinationRepository destinationRepository;
@@ -16,7 +17,7 @@ public class DestinationController {
         this.destinationRepository = destinationRepository;
       }
 
-    @GetMapping("/destinations")
+    @GetMapping
     public Iterable<Destination>  getAllDestinations() {
         return this.destinationRepository.findAll();
     }
