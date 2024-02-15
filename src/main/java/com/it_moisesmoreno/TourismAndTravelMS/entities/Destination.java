@@ -4,6 +4,7 @@ package com.it_moisesmoreno.TourismAndTravelMS.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
@@ -13,9 +14,9 @@ import jakarta.persistence.Column;
 public class Destination {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "destination_id")
-    private Long id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
@@ -35,8 +36,15 @@ public class Destination {
     @Column(name = "image_url")
     private String imageUrl;
 
+    @Column(name = "is_active")
+    private boolean isActive;
+    
     // Getters and setters
-    public Long getId() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getId() {
         return this.id;
     }
 
@@ -86,6 +94,14 @@ public class Destination {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public void setIsActive(boolean active) {
+        this.isActive = active;
     }
 
     // Constructor
