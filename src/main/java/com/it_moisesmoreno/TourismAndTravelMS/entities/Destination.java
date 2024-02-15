@@ -35,6 +35,9 @@ public class Destination {
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @Column(name = "is_active")
+    private boolean isActive;
     
     // Getters and setters
     public void setId(Integer id) {
@@ -91,6 +94,14 @@ public class Destination {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
     
     // Constructor

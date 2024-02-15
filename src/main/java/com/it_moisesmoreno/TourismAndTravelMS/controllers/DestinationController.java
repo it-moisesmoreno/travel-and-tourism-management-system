@@ -24,18 +24,22 @@ public class DestinationController {
 
     @GetMapping("/search")
     public List<Destination> searchDestinations(
-    @RequestParam(name="maxRating", required = false) Double rating,
-    @RequestParam(name="maxPrice", required = false) Double price
+    @RequestParam(name="maxPrice", required = false) Double price,
+    @RequestParam(name="isActive", required = false) Boolean isActive
     ) {
-        if (rating != null & price != null) {
-          return this.destinationRepository.findByRatingLessThanAndPriceLessThan(rating,price);
-        }
-        if (rating != null) {
-          return this.destinationRepository.findByRatingLessThan(rating);
+        if (price != null && isActive != null && isActive) { 
+          return this.destinationRepository.findByPriceLessThanAndIsActiveTrue(price);
         }
         if (price != null) {
           return this.destinationRepository.findByPriceLessThan(price);
         }
+        if (isActive != null && isActive) {
+          return this.destinationRepository.findByIsActiveTrue();
+        }
+        if (isActive != null && !isActive) {
+          return this.destinationRepository.findByIsActiveFalse();
+        }
+
         return new ArrayList<>();
     }
 

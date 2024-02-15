@@ -31,10 +31,11 @@ public class UserController {
       }
 
     @GetMapping("/search")
-    public List<User> searchDestinations(
+    public List<User> searchUsers(
     @RequestParam(name="isUser", required = false) Boolean isUser,
     @RequestParam(name="username", required = false) String username,
-    @RequestParam(name="email", required = false) String email
+    @RequestParam(name="email", required = false) String email,
+    @RequestParam(name="isActive", required = false) Boolean isActive
     ) {
         if (username != null && email != null) {
           return this.userRepository.findByUsernameAndEmail(username, email);
@@ -50,6 +51,12 @@ public class UserController {
         }
         if (isUser != null && !isUser) {
           return this.userRepository.findByRole(User.Role.admin);
+        }
+        if (isActive != null && isActive) {
+          return this.userRepository.findByIsActiveTrue();
+        }
+        if (isActive != null && !isActive) {
+          return this.userRepository.findByIsActiveFalse();
         }
 
         return new ArrayList<>();
