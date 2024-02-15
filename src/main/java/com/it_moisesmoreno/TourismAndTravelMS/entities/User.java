@@ -15,7 +15,7 @@ import jakarta.persistence.Column;
 @Table(name = "users")
 public class User {
 
-    private enum Role {admin, user};
+    public static enum Role {admin, user};
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
