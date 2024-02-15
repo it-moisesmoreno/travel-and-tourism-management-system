@@ -23,27 +23,21 @@ public class DestinationController {
       }
 
     @GetMapping("/search")
-  public List<Destination> searchDestinations(
-    @RequestParam(name="isActive", required = false) Boolean isActive,
-    @RequestParam(name="maxPrice", required = false) Integer price
-  ) {
-    if (isActive != null && price != null && isActive) {
-      return this.destinationRepository.findByIsActiveTrueAndPriceLessThan(price);
+    public List<Destination> searchDestinations(
+    @RequestParam(name="maxRating", required = false) Double rating,
+    @RequestParam(name="maxPrice", required = false) Double price
+    ) {
+        if (rating != null & price != null) {
+          return this.destinationRepository.findByRatingLessThanAndPriceLessThan(rating,price);
+        }
+        if (rating != null) {
+          return this.destinationRepository.findByRatingLessThan(rating);
+        }
+        if (price != null) {
+          return this.destinationRepository.findByPriceLessThan(price);
+        }
+        return new ArrayList<>();
     }
-    if (isActive != null && price != null && !isActive) {
-      return this.destinationRepository.findByIsActiveFalseAndPriceLessThan(price);
-    }
-    if (isActive != null && isActive) {
-      return this.destinationRepository.findByIsActiveTrue();
-    }
-    if (isActive != null && !isActive) {
-      return this.destinationRepository.findByIsActiveFalse();
-    }
-    if (price != null) {
-      return this.destinationRepository.findByPriceLessThan(price);
-    }
-    return new ArrayList<>();
-  }
 
     @GetMapping
     public Iterable<Destination>  getAllDestinations() {
@@ -87,9 +81,6 @@ public class DestinationController {
       }
       if(d.getImageUrl() != null){
         destinationToUpdate.setImageUrl(d.getImageUrl());
-      }
-      if(d.getIsActive() != true){
-        destinationToUpdate.setIsActive(false);
       }
   
       Destination updatedDestination = this.destinationRepository.save(destinationToUpdate);

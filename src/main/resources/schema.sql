@@ -4,8 +4,7 @@ CREATE TABLE users (
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    role ENUM('admin', 'user') NOT NULL DEFAULT 'user',
-    is_active boolean
+    role ENUM('admin', 'user') NOT NULL DEFAULT 'user'
 );
 
 -- Table: destinations
@@ -16,8 +15,7 @@ CREATE TABLE destinations (
     location VARCHAR(100),
     rating DECIMAL(3, 1),
     price DECIMAL(10, 2),
-    image_url VARCHAR(255),
-    is_active boolean
+    image_url VARCHAR(255)
 );
 /*
 -- Table: bookings
