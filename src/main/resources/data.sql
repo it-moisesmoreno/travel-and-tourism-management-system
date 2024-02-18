@@ -13,7 +13,7 @@ INSERT INTO destinations (name, description, location, rating, price, image_url,
 ('New York City', 'The Big Apple', 'USA', 4.7, 1800.00, 'nyc.jpg', true);
 
 -- Inserting sample bookings
-/*INSERT INTO bookings (user_id, destination_id, booking_date) VALUES
+INSERT INTO bookings (user_id, destination_id, booking_date) VALUES
 (2, 1, '2023-12-13 10:00:00'),
 (3, 2, '2023-12-14 11:30:00'),
-(3, 3, '2023-12-15 09:45:00');*/
+(3, 3, '2023-12-15 09:45:00');

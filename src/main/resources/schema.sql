@@ -19,7 +19,7 @@ CREATE TABLE destinations (
     image_url VARCHAR(255),
     is_active BOOLEAN
 );
-/*
+
 -- Table: bookings
 CREATE TABLE bookings (
     booking_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -28,4 +28,4 @@ CREATE TABLE bookings (
     booking_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (destination_id) REFERENCES destinations(destination_id) ON DELETE CASCADE
-);*/
+);
