@@ -1,4 +1,4 @@
--- ttms-sys-XEDPB1
+-- ttms-system-XEDPB1
 CREATE USER it_moisesmoreno IDENTIFIED BY secretpass;
 GRANT CONNECT TO it_moisesmoreno;
 GRANT CREATE SESSION TO it_moisesmoreno;
