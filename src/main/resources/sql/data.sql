@@ -10,6 +10,7 @@ INSERT INTO users (username, password, email, role, is_active) VALUES
 INSERT INTO destinations (name, description, location, rating, price, image_url, is_active) VALUES
 ('Paris', 'The City of Lights', 'France', 4.5, 1500.00, 'paris.jpg', true),
 ('Tokyo', 'Vibrant metropolis', 'Japan', 4.8, 2000.00, 'tokyo.jpg', true),
+('test', 'test', 'test', 4.8, 2000.00, 'test', true),
 ('New York City', 'The Big Apple', 'USA', 4.7, 1800.00, 'nyc.jpg', true);
 
 -- Inserting sample bookings

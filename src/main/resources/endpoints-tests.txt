@@ -1,0 +1,6 @@
+curl -X POST localhost:8080/destinations -H "Content-Type: application/json" -d "{\"name\":\"Paris\", \"description\":\"The City of Lights\", \"location\":\"France\", \"rating\":4.5, \"price\":1500.00, \"imageUrl\":\"paris.jpg\", \"is_active\":true}"
+INSERT INTO destinations (name, description, location, rating, price, image_url, is_active) VALUES
+('Paris', 'The City of Lights', 'France', 4.5, 1500.00, 'paris.jpg', true),
+curl -X POST localhost:8080/bookings -H "Content-Type: application/json" -d "{\"userId\":2, \"destinationId\":1, \"bookingDate\":\"2023-12-16 10:00:00\"}"
+curl -X PUT localhost:8080/bookings/4 -H "Content-Type: application/json" -d "{ \"bookingDate\":\"2023-12-16T10:15:00\"}"
+curl 'localhost:8080/bookings/search?bookingDate=2000-10-31'
