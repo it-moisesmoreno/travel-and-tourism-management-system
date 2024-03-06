@@ -9,7 +9,6 @@ public class WelcomeController {
 
 	@GetMapping("")
 	public String welcome() {
-		System.out.println("main controller");
 		return "index";
 	}
 
