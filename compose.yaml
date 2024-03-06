@@ -53,24 +53,23 @@ services:
 # database that this application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the
 # database data between container restarts.
+# https://stackoverflow.com/questions/50217637/how-do-i-check-if-oracle-is-up-in-docker
+# https://blogs.oracle.com/connect/post/deliver-oracle-database-18c-express-edition-in-containers
     depends_on:
       db:
         condition: service_healthy
   db:
     image: oracle/database:18.4.0-xe
-    # restart: always
     volumes:
-      - db-data:/opt/oracle/oradata
+      - ~/Docker/xepdb1/oradata:/opt/oracle/oradata
+      # - ~/Docker/xepdb1/scripts/setup:/opt/oracle/scripts/setup
+      # - ~/Docker/xepdb1/scripts/startup:/opt/oracle/scripts/startup
     environment:
       - ORACLE_PWD=secret
       - ORACLE_CHARACTERSET=AL32UTF8
     healthcheck:
       test: [ "CMD", "/opt/oracle/checkDBStatus.sh" ]
       interval: 2s
-#       timeout: 5s
-#       retries: 5
     ports:
       - 51521:1521
       - 55500:5500
-volumes:
-  db-data:
