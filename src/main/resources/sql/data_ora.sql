@@ -24,3 +24,5 @@ WITH records_data (user_id, destination_id, booking_date) AS (
     SELECT 3, 3, to_timestamp('2023-12-15 09:45:00', 'YYYY-MM-DD HH:MI:SS') FROM dual
 )
 SELECT * FROM records_data;
+
+COMMIT;

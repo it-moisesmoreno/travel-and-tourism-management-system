@@ -1,5 +1,5 @@
 -- ttms-system-XEDPB1
-CREATE USER it_moisesmoreno IDENTIFIED BY secretpass;
+CREATE USER it_moisesmoreno IDENTIFIED BY secretpassword;
 GRANT CONNECT TO it_moisesmoreno;
 GRANT CREATE SESSION TO it_moisesmoreno;
 GRANT CREATE TABLE TO it_moisesmoreno;
