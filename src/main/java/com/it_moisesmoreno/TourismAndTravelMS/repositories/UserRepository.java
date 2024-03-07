@@ -12,4 +12,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     List<User> findByRole(User.Role role);
     List<User> findByUsernameAndEmail(String username, String email);
     List<User> findByUsernameOrEmail(String username, String email);
+    public Integer countById(Integer id);
 }

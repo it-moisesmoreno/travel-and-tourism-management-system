@@ -38,8 +38,8 @@
                 <td>[[${user.role}]]</td>
                 <td>[[${user.isActive}]]</td>
                 <td>
-                  <a class="h4 mr-3">Edit</a>
-                  <a class="h4">Delete</a>
+                  <a class="h4 mr-3" th:href="@{'/usersWeb/edit/'} + ${user.id}">Edit</a>
+                  <a class="h4" th:href="@{'/usersWeb/delete/'} + ${user.id}">Delete</a>
                 </td>
               </tr>
             </th:block>
